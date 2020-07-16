@@ -30,7 +30,7 @@ const runTester = async () => {
 
 const clearDB = async () => {
   try {
-    const dbConnection = await MongoDB.MongoClient.connect(config.dbURL);
+    const dbConnection = await MongoDB.MongoClient.connect(config.dbURL, { useUnifiedTopology: true });
     await dbConnection.dropDatabase();
     await dbConnection.close();
   } catch (error) {

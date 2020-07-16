@@ -74,7 +74,7 @@ describe('.streamToMongoDB', () => {
   });
 });
 
-const connect = () => MongoDB.MongoClient.connect(config.dbURL, { useNewUrlParser: true });
+const connect = () => MongoDB.MongoClient.connect(config.dbURL, { useUnifiedTopology:true, useNewUrlParser: true });
 
 const runStreamTest = (options, done) => {
   fs.createReadStream(DATA_FILE_LOCATION)
